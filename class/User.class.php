@@ -31,14 +31,14 @@ class User{
 			$this->role = isset($kwargs['role']) ? $kwargs['role'] : USER::USER;
 			$this->pass = hash("whirlpool", $kwargs['mail'] . $kwargs['password']);
 			$this->state = USER::NEED_VALID;
+			Tools::sendMail(Tools::VALID_TYPE, $this);
 		}
 	}
 
 	public function create(){
 		$db = Database::getInstance();
-		$i = $db->prepare("INSERT INTO users (id, mail, name, password, role, state) VALUES (?, ?, ?, ?, ?, ?)");
-		$i->execute(array($this->id, $this->mail, $this->name, $this->pass, $this->role, $this->state));
+		$i = $db->prepare("INSERT INTO users (id, mail, name, password) VALUES (?, ?, ?, ?)");
+		$i->execute(array($this->id, $this->mail, $this->name, $this->pass));
 	}
 }
-
 ?>

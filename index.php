@@ -34,5 +34,6 @@ include_once('./config/setup.php');
 <p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
 	<div></div>
 </footer>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-require '../config/database.php';
+require './config/database.php';
 
 class DataBase{
 	static function getInstance(){
