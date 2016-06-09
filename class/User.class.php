@@ -31,7 +31,7 @@ class User{
 			$this->role = isset($kwargs['role']) ? $kwargs['role'] : USER::USER;
 			$this->pass = hash("whirlpool", $kwargs['mail'] . $kwargs['password']);
 			$this->state = USER::NEED_VALID;
-			Tools::sendMail(Tools::VALID_TYPE, $this);
+			Tools::sendEmail(Tools::VALID_TYPE, $this);
 		}
 	}
 
@@ -39,6 +39,22 @@ class User{
 		$db = Database::getInstance();
 		$i = $db->prepare("INSERT INTO users (id, mail, name, password) VALUES (?, ?, ?, ?)");
 		$i->execute(array($this->id, $this->mail, $this->name, $this->pass));
+	}
+
+	public function update(){
+		$db = DataBase::getInstance();
+		$prep = $db->prepare("UPDATE users SET mail=?, name=?, password=?, state=? WHERE id = '$this->id'");
+		$prep->execute(array($this->mail, $this->name, $this->password, $this->state));
+	}
+
+	public static function query($id){
+		$db = DataBase::getInstance();
+		$prep = $db->prepare("SELECT * FROM users WHERE id = '$id'");
+		$prep->setFetchMode(PDO::FETCH_INTO, new User(null));
+		if ($prep->execute())
+			return $prep->fetch();
+		else
+			return null;
 	}
 }
 ?>

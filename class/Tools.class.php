@@ -22,16 +22,19 @@ class Tools{
 			case Tools::VALID_TYPE : {
 				//creer un cookie
 				$token = Tools::gen_uuid();
-				$db = Dbase::getInstance();
+				$db = DataBase::getInstance();
 				$prep = $db->prepare("INSERT INTO tokens (id, user, type) VALUES (?, ?, ?)");
-				$prep->execute(array($token, $user->id, "REGISTER"));
+				$prep->execute(array($user->id, $token, "REGISTER"));
 
-				//prendre le patron et remplacer les variables et envoyer le mail
-				$content = file_get_contents('./mail_template/register.html');
+				//prendre le patron, remplacer les variables et envoyer le mail
+	
+				$content = file_get_contents('mail_template/register.html');
 				$content = preg_replace("/%name%/", $user->name, $content);
-				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "mail.php?type=valid&code=" . $token, $content);
+				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/Camagru/mail.php?type=valid&code=" . $token, $content);
+				echo $content;
+				echo $user->mail;
 				mail($user->mail, "Valid yur account to use our site !", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
-				break;
+			//	break;
 			}
 			
 			default:
