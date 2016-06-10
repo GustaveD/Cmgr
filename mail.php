@@ -10,19 +10,17 @@
 		//		return ;
 		//	}
 			$db = DataBase::getInstance();
-			$prep = $db->prepare("SELECT * FROM tokens WHERE id=?");
-			if ($prep->execute(array($_GET['code']))){
-				$token = $prep->fetch();
-				$user = User::query($token['user']);
-				$user->state = User::REGISTER;
-				$user->update();
-				$prep = $db->prepare("DELETE FROM tokens WHERE id=?");
-				$prep->execute(array($_GET['code']));
-			}
-			else{
+			$prep = $db->prepare("SELECT * FROM users WHERE name=?");
+			$prep->execute(array($_GET['code']));
+			$use = $prep->fetch();
+			$user = User::query($use['id']);
+			$user->state = User::REGISTER;
+			$user->update();
+			
+		/*	else{
 				echo "PROB CODE";
 				return ;
-			}
+			}*/
 		}
 	}
 ?>
