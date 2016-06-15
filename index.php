@@ -18,7 +18,9 @@ include_once('./config/setup.php');
 		</br>
 			<label for="mdp">Mot de Passe</label>
 			<input id = "mdp" name = "mdp" type = "password" required />
-			<a href="#" id = "pwd_oubli"> Mot de passe oublié?</a>
+			<!--<a href="#" id = "pwd_oubli"> Mot de Passe oulbié?</a>-->
+			</br>
+			<a href="forgot_mail.php">Mot de Passe oublié?</a>
 			<input type ="submit" value="Connexion">
 		</form>
 	</header>
