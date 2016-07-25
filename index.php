@@ -30,10 +30,10 @@ include_once('./config/setup.php');
 	</header>
 	<nav id ="menu_top">
 		<ul>
-			<li><a href="#">Actualités</a></li>
-			<li><a href="#">Pages</a></li>
-			<li><a id ="deco" href = "inscription.php">S'inscrire</a></li>
-			<li><a id ="deco" href = "logout.php">Se deconnecter</a></li>
+			<li><a id ="Montage" href = "take_photo.php">Montage</a></li>
+			<li><a id ="Galerie" href = "galerie.php">Galerie</a></li>
+			<li><a id ="inscription" href = "inscription.php">S'inscrire</a></li>
+			<li><a id ="logout" href = "logout.php">Se deconnecter</a></li>
 		</ul>
 	</nav>
 	<footer id = "footer_site">
