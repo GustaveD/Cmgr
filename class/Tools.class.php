@@ -30,13 +30,14 @@ class Tools{
 				echo $content;
 				echo $user->mail;
 				mail($user->mail, "Valid yur account to use our site !", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
-			//	break;
+				break;
 			}
 			case Tools::FORGOT_TYPE : {
 				$content = file_get_contents('mail_template/forgot.html');
 				$content = preg_replace("/%name%/", $user->name, $content);
 				$content = preg_replace("/%password%/", $other, $content);
 				mail($user->mail, "[Tof-ouf] Your new Pass is here!", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
+				break;
 			}
 			
 			default:
