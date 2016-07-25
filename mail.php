@@ -5,25 +5,15 @@
 
 	switch($_GET['type']){
 		case "valid" : {
-		//	if (!$_GET['code'] || !Tools::is_uuid($_GET['code'])){
-		//		echo "BAD CODE";
-		//		return ;
-		//	}
 			$db = DataBase::getInstance();
 			$prep = $db->prepare("SELECT * FROM users WHERE name=?");
 			$prep->execute(array($_GET['code']));
 			$use = $prep->fetch();
 			$user = User::query($use['id']);
 			$user->state = User::REGISTER;
-			$user->update();
-
-			
+			$user->update();			
 			header('Location: ./index.php');
-			
-		/*	else{
-				echo "PROB CODE";
-				return ;
-			}*/
+			break;
 		}
 		case "forgot" : {
 			if (isset($_GET['mail'])){
@@ -42,12 +32,14 @@
 				$user = $prep->fetch();
 				$pwd = Tools::random_string(16);
 				$user->password = hash('whirlpool', $pwd);
+				//$user->password = $pwd;
 				$user->update();
 				Tools::sendEmail(Tools::FORGOT_TYPE, $user, $pwd);
 				echo "mail send";
 			}
 			else
 				echo "No emmail";
+			break;
 		}
 	}
 ?>

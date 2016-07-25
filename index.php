@@ -11,6 +11,9 @@ include_once('./config/setup.php');
 </head>
 <body>
 	<header>
+		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
+		<div id = "title"><h1> TOF-OUF</h1> </div>
+		<!--<div id = "img-logo"><img src="./img/logo.png"></div>-->
 		<section id="connexion">
 		<form method="post" action="connexion.php">
 			<label for="id">Identifiant</label>
@@ -23,6 +26,7 @@ include_once('./config/setup.php');
 			<a href="forgot_mail.php">Mot de Passe oublié?</a>
 			<input type ="submit" value="Connexion">
 		</form>
+		</section>
 	</header>
 	<nav id ="menu_top">
 		<ul>

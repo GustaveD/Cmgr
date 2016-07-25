@@ -29,8 +29,8 @@ class User{
 			$this->mail = $kwargs['mail'];
 			$this->name = $kwargs['name'];
 			$this->role = isset($kwargs['role']) ? $kwargs['role'] : USER::USER;
-			$this->pass = $kwargs['pass'];
-			//$this->pass = hash("whirlpool", $kwargs['password']);
+			//$this->pass = $kwargs['pass'];
+			$this->pass = hash("whirlpool", $kwargs['pass']);
 			$this->state = USER::NEED_VALID;
 			Tools::sendEmail(Tools::VALID_TYPE, $this);
 		}
