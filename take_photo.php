@@ -31,10 +31,7 @@ echo '
 	</div>
 	</body>
 	</html>';
-
 }
 else
 	echo 'GROS FILS DE PUTE CONNECTE TOI (MERDE)';
 	//header("Location: ./index.php");
-
-?>

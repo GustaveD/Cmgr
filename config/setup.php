@@ -7,7 +7,7 @@
 	catch (PDOException $e){
 		echo 'Connexion echouee' . $e->getMessage();
 	}
-	$requete = "CREATE DATABASE IF NOT EXISTS cama DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
+	$requete = "CREATE DATABASE IF NOT EXISTS cam DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$db->prepare($requete)->execute();
 	$co = DataBase::getInstance();
 	$req = "CREATE TABLE IF NOT EXISTS `users` (
@@ -30,18 +30,16 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	$co->prepare($req)->execute();
 
+	$req = "CREATE TABLE IF NOT EXISTS `img` (
+		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		`path` varchar(36) DEFAULT NULL,
+		`user_id` INT NOT NULL
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+	$co->prepare($req)->execute();
+
 	$req = "CREATE TABLE IF NOT EXISTS `tokens` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user` varchar(36) DEFAULT NULL,
   `type` enum('FORGOT_PASSWORD','REGISTER') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	$co->prepare($req)->execute();
-
-	$req = "CREATE TABLE IF NOT EXISTS `imgs` (
-	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`author` varchar(36) DEFAULT NULL,
-	`img` longtext,
-	`date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-	) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-	$co->prepare($req)->execute();
-?>
