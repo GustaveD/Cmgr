@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+require_once './class/Dbase.class.php';
+require_once './class/User.class.php';
+
+if (isset($_SESSION['user']))
+{
 echo '
 <!doctype html>
 <html lang="fr">
@@ -25,5 +32,5 @@ echo '
 </div>
 </body>
 </html>';
-
+}
 ?>
