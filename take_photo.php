@@ -27,7 +27,7 @@ echo '
 		<input name="hidden_data" id="hidden_data" type="hidden"/>
 		</form>
 	<div>
-	<canvas id="canvas" width="640" 000000height="480"></canvas>
+	<canvas id="canvas" width="640" height="480"></canvas>
 	</div>
 	</body>
 	</html>';

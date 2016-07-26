@@ -33,7 +33,7 @@ require_once './class/User.class.php';
 		}
 		$_SESSION['user'] = $user->id;
 		$_SESSION['user_name'] = $user->name;
-		echo "hello".$_SESSION['user_name'];
+		echo "hello " . $_SESSION['user_name'];
 		//header('Location: ./index.php');
 		}
 	else

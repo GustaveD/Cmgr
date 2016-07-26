@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Tools.class.php';
-require_once 'Dbase.class.php';
-require_once 'User.class.php';
+require_once './Tools.class.php';
+require_once './Dbase.class.php';
+require_once './User.class.php';
 
 class Comment{
 
@@ -28,6 +28,16 @@ class Comment{
 			$db = DataBase::getInstance();
 			$prep = $db->prepare("INSERT INTO comments (id, post, author, state, content) VALUE (?, ?, ?, ?, ?)");
 			$prep->execute(array($this->id, $this->post, $this->author, $this->state, $this->content));
+		}
+
+		public function query($author){
+			$db = DataBase::getInstance();
+			$prep = $db->prepare("SELECT * FROM comments WHERE author = '$author'");
+			$prep->setFetchMode(PDO::FETCH_INTO, new Comment(null));
+			if ($prep->execute())
+				return $prep->fetch();
+			else
+				return null;
 		}
 	}
 }
