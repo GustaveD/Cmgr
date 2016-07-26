@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 echo 'test1';
 $upload_dir = "./";
 $img = $_POST['hidden_data'];

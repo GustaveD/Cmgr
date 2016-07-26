@@ -37,4 +37,11 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	$co->prepare($req)->execute();
 
+	$req = "CREATE TABLE IF NOT EXISTS `imgs` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`author` varchar(36) DEFAULT NULL,
+	`img` longtext,
+	`date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+	$co->prepare($req)->execute();
 ?>
