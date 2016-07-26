@@ -25,7 +25,7 @@ class Tools{
 	
 				$content = file_get_contents('mail_template/register.html');
 				$content = preg_replace("/%name%/", $user->name, $content);
-				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/Camagru/mail.php?type=valid&code=" . $user->name, $content);
+				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/cmgr/mail.php?type=valid&code=" . $user->name, $content);
 				echo "id=".$user->id;
 				echo $content;
 				echo $user->mail;

@@ -43,7 +43,6 @@ function uploadEx()
  {
 	var canvas = document.getElementById("canvas");
 	var dataURL = canvas.toDataURL("image/png");
-	console.log(dataURL);
 	document.getElementById('hidden_data').value = dataURL;
 	var fd = new FormData(document.forms["form1"]);
 	var xhr = new XMLHttpRequest();
