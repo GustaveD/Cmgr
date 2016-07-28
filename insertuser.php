@@ -14,7 +14,7 @@ require_once './class/User.class.php';
 
 	if (strlen($pwd) < 5 || strlen($name) < 5)
 	{
-		echo "LE MOT DE PASSE ET LE NOM DOIVENT DOIT COMPORTER AU MOINS 5 CARACTERE";
+		echo "LE MOT DE PASSE ET TON PSEUDO DOIVENT COMPORTER AU MOINS 5 CARACTERES";
 		return;
 	}
 

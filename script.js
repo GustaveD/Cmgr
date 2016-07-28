@@ -32,6 +32,7 @@ document.getElementById("snap").addEventListener('click', function() {
 	}
 
 }, false);
+
 function takepick()
 {
 	var cv = document.getElementById("canvas"),

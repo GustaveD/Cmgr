@@ -1,13 +1,11 @@
 <?php
-session_start();
-
-echo 'test1';
-
 require_once './class/Dbase.class.php';
 require_once './class/User.class.php';
 require_once './class/Img.class.php';
+session_start();
 
-$upload_dir = "./";
+
+$upload_dir = "./img/";
 $img = $_POST['hidden_data'];
 $img = str_replace('data:image/png;base64,', '', $img);
 $img = str_replace(' ', '+', $img);
@@ -21,6 +19,6 @@ $img = new Img(array('author' =>$_SESSION['user_name'], 'img_path'=>$path));
 	try{
 		$img->create();
 	} catch (Exception $e){
-		die("DB ERROR: ".$e);
+		die("DB ERROR: ". $e);
 	}
 ?>

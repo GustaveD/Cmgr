@@ -17,4 +17,3 @@ header('Content-type: image/png');
 imagepng($im, './test.png');
 imagedestroy($im);
 ?>
-
