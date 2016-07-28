@@ -18,7 +18,7 @@ class Img
 		{
 			$this->author = $kwargs['author'];
 			$this->img_path = $kwargs['img_path'];
-			$this->like = 0;
+			$this->like = intval(0);
 		}
 	}
 
