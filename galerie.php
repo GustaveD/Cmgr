@@ -25,8 +25,8 @@ while ($img = $stmt->fetch())
 	echo "<img src='".$img['img_path']."'width=200 height=150/>";
 	echo "<p>".$img['like']."<p>";
 	echo "<br> <br>";
-	echo "<form action ='commentaire.php' method='post'";
-	echo "<label for='message'>Commentaire</label> : <input type='text' name='commentaire' id ='message'/>";
+	echo "<form action ='upload_com.php' method='post'";
+	echo "<label for='message'>Commentaire</label> : <input type='text' name='comment' id ='message'/>";
 	echo "<input type='submit' value='Envoyer'/>";
 	echo "<br> <br>";
 	echo "</form>";
