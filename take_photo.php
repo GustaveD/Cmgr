@@ -7,6 +7,7 @@ require_once './class/User.class.php';
 <head>
 	<title>MONTAGE</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style01.css">
 </head>
 <body>
 	<header>
@@ -24,14 +25,20 @@ echo '
 	  <title>Titre de la page</title>
 	</head>
 	<body>
-	<div>
+	<div id="align">
 	<video id="video" width="640" height="480" autoplay></video>
 	</div>
-	<div>
+
+	<div id="align">
+	<form method="post" value="Upload">
+		<input src="./masque1.png" type="image" id="top" onclick="uploadEx(1)" width="128" height="128">
+		<input src="./masque2.png" type="image" id="top" onclick="uploadEx(2)" width="128" height="128">
+		<input src="./masque3.png" type="image" id="bot" onclick="uploadEx(3)" width="128" height="128">
+		<input src="./masque4.png" type="image" id="bot" onclick="uploadEx(4)" width="128" height="128">
+			<input type="submit" value="select">
+		</form>
+		<div>
 	<button onclick="takepick()" id="snap">Snap Photo</button>
-	</div>
-	<div>
-		<input type="button" onclick="uploadEx()" value="Upload" />
 	</div>
 	<form method="post" accept-charset="utf-8" name="form1">
 		<input name="hidden_data" id="hidden_data" type="hidden"/>

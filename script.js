@@ -40,23 +40,24 @@ function takepick()
 	var v = document.getElementById("video");
 	ctx.drawImage(video, 0, 0, 680, 480);
 };
-function uploadEx()
- {
+function uploadEx(masque)
+{
 	var canvas = document.getElementById("canvas");
 	var dataURL = canvas.toDataURL("image/png");
 	document.getElementById('hidden_data').value = dataURL;
 	var fd = new FormData(document.forms["form1"]);
+	fd.append("variable1", masque);
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', './upload_data.php', true);
+	xhr.open('POST', './upload_data.php', false);
 	xhr.upload.onprogress = function(e) {
  		if (e.lengthComputable) {
 			var percentComplete = (e.loaded / e.total) * 100;
 			console.log(percentComplete + '% uploaded');
 			alert('Succesfully uploaded');
 		}
+
 	};
 	xhr.onload = function() {
 	};
-	console.log("test");
 	 xhr.send(fd);
 };

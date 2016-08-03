@@ -8,11 +8,21 @@ require_once './class/User.class.php';
 
 	if (!$pwd || !$login){
 		echo "bad pwd or login";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 		return ;
 	//	header('Location: ./index.php');
 	}
 	if (isset($_SESSION['user'])){
 		echo "already log";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 		return ;
 		//header('Location: ./index.php');
 	}
@@ -28,15 +38,31 @@ require_once './class/User.class.php';
 		$user = $stmt->fetch();
 		if ($user->state === User::NEED_VALID || $user->state === User::DELTD) {
 			echo "you need to valid or your compt has been deleted";
+				echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 			//header('Location: ./index.php');
 			return ;
 		}
 		$_SESSION['user'] = $user->id;
 		$_SESSION['user_name'] = $user->name;
 		echo "hello " . $_SESSION['user_name'];
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 		//header('Location: ./index.php');
 		}
-	else
+	else {
 		echo "no compte correspond";
+		echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
+}
 		//header('Location: ./index.php');
 ?>
