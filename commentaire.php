@@ -1,7 +1,7 @@
 <?php
 require_once './class/Dbase.class.php';
 require_once './class/User.class.php';
-require_once './class/Img.class.php'
+require_once './class/Img.class.php';
 require_once './class/Comment.class.php';
 session_start();
 ?>
@@ -16,10 +16,12 @@ session_start();
 		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
 		<div id = "title"><h1> TOF-OUF</h1> </div>
 	</header>
-	<?php
-	$db->Database::getInstance();
-	$prep = $db->prepare("SELECT ? from imgs");
-	?>
-
+<?php
+	$db = Database::getInstance();
+	$prep = $db->prepare("SELECT img_path FROM imgs WHERE author = ? AND id = ?");
+	$prep = $db->execute($_GET['commentaire']);
+?>
+	<div class ="photo">
+	</div>
 </body>
 </html>

@@ -31,10 +31,10 @@ echo '
 
 	<div id="align">
 	<form method="post" value="Upload">
-		<input src="./masque1.png" type="image" id="top" onclick="uploadEx(1)" width="128" height="128">
-		<input src="./masque2.png" type="image" id="top" onclick="uploadEx(2)" width="128" height="128">
-		<input src="./masque3.png" type="image" id="bot" onclick="uploadEx(3)" width="128" height="128">
-		<input src="./masque4.png" type="image" id="bot" onclick="uploadEx(4)" width="128" height="128">
+		<input src="./img/masque1.png" type="image" id="top" onclick="uploadEx(1)" width="128" height="128">
+		<input src="./img/masque2.png" type="image" id="top" onclick="uploadEx(2)" width="128" height="128">
+		<input src="./img/masque3.png" type="image" id="bot" onclick="uploadEx(3)" width="128" height="128">
+		<input src="./img/masque4.png" type="image" id="bot" onclick="uploadEx(4)" width="128" height="128">
 			<input type="submit" value="select">
 		</form>
 		<div>
