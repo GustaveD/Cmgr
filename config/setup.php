@@ -24,7 +24,7 @@
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `post` varchar(36) DEFAULT NULL,
   `author` varchar(36) DEFAULT NULL,
-  `state` enum('SHOWN','DELETED','EDITED','MODERATED') NOT NULL DEFAULT 'SHOWN',
+  `state` enum('SHOWN','DELETED','EDITED','MODERATED') DEFAULT 'SHOWN',
   `content` text,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
@@ -45,3 +45,5 @@
   `type` enum('FORGOT_PASSWORD','REGISTER') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	$co->prepare($req)->execute();
+
+?>
