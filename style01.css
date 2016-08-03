@@ -1,0 +1,15 @@
+#align {
+		display:table-cell;
+		padding : 10px;
+}
+
+#top {
+	display:table-cell;
+	padding :5px;
+}
+
+#bot {
+	display:table-cell;
+	padding :5px;
+}
+

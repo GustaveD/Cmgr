@@ -9,12 +9,22 @@ require_once './class/User.class.php';
 
 	if (!$mail || !$name || !$pwd || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 		echo "UN/LES CHAMPS NE SONT PAS VALID GROS FDP";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "inscription.php"
+				},2000);
+	</script>';
 			return ;
 	}
 
 	if (strlen($pwd) < 5 || strlen($name) < 5)
 	{
 		echo "LE MOT DE PASSE ET TON PSEUDO DOIVENT COMPORTER AU MOINS 5 CARACTERES";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "inscription.php"
+				},2000);
+	</script>';
 		return;
 	}
 
@@ -23,6 +33,11 @@ require_once './class/User.class.php';
 	$prep->execute(array($name));
 	if ($prep->rowCount() > 0) {
 			echo "IL Y A DEJA UN GROS FDP QUI PORTE SE NOM";
+				echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "inscription.php"
+				},2000);
+	</script>';
 			return ;
 		}
 
@@ -31,6 +46,11 @@ require_once './class/User.class.php';
 	$prep->execute(array($mail));
 	if ($prep->rowCount() > 0) {
 			echo "IL Y A DEJA UN GROS FDP QUI UTILISE CE MAIL";
+				echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "inscription.php"
+				},2000);
+	</script>';
 			return ;
 	}
 	$name = preg_replace('/<[^>]*>/', '', $name);
