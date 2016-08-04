@@ -16,12 +16,26 @@ session_start();
 		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
 		<div id = "title"><h1> TOF-OUF</h1> </div>
 	</header>
-<?php
-	$db = Database::getInstance();
-	$prep = $db->prepare("SELECT img_path FROM imgs WHERE author = ? AND id = ?");
-	$prep = $db->execute($_GET['commentaire']);
-?>
-	<div class ="photo">
+
+	<p> date =<?php $_POST['id']; ?> </p>
+	<?php
+
+		$db = DataBase::getInstance();
+
+		$prep = $db->prepare("SELECT * FROM imgs WHERE id = ? and author = ?");
+		$prep->execute(array($_POST['id'], $_POST['author']));
+		$img = $prep->fetch();
+		var_dump($_POST['author']);
+		
+		var_dump($img);
+		echo '<h2><a title="'.$img['author'].'"</a></h2>';
+	?>
+	<h1> COMMENTAIIIIRES </h1>
+	<div class ="img">
+		<h3>
+			<em>le<?php echo $img['date'] ?></em>
+		</h3>
+		<img src="<?php $prep['img_path']; ?>" width=200 height=150/>
 	</div>
 </body>
 </html>

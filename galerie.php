@@ -26,9 +26,17 @@ while ($img = $stmt->fetch())
 	echo "<p>".$img['like']."<p>";
 	echo "<br> <br>";
 	echo "<form action ='upload_com.php' method='post'";
-	echo "<label for='message'>Commentaire</label> : <input type='text' name='comment' id ='message'/>";
+	echo "<label for='message'>Commentaire</label> : 
+		<input type='text' name='comment' id ='message'/>";
 	echo "<input type='submit' value='Envoyer'/>";
-	echo "<a href='commentaire.php?commentaire='".$img['author'].">Voir les Commentaire</a>";
+	echo "</form>";
+?>
+	<form action = "commentaire.php" method='post'>
+		<input type='hidden' name ='author' value="<?php $img['author'];?>"/>
+		<input type='hidden' name ='id' value="<?php $img['id'];?>"/>
+		<input type='submit' name ="commentaires" value='commentaire'/>
+	</form>
+<?php
 	echo "<br> <br>";
 	echo "</form>";
 	echo "</div>";
