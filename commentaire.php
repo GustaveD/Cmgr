@@ -17,25 +17,34 @@ session_start();
 		<div id = "title"><h1> TOF-OUF</h1> </div>
 	</header>
 
-	<p> date =<?php $_POST['id']; ?> </p>
 	<?php
-
+		$author = $_POST['author'];
+		$id = $_POST['id'];
 		$db = DataBase::getInstance();
-
 		$prep = $db->prepare("SELECT * FROM imgs WHERE id = ? and author = ?");
-		$prep->execute(array($_POST['id'], $_POST['author']));
+		$prep->execute(array($id, $author));
 		$img = $prep->fetch();
-		var_dump($_POST['author']);
-		
-		var_dump($img);
-		echo '<h2><a title="'.$img['author'].'"</a></h2>';
 	?>
 	<h1> COMMENTAIIIIRES </h1>
 	<div class ="img">
 		<h3>
-			<em>le<?php echo $img['date'] ?></em>
+			<em>le <?php echo $img['date'] ?></em>
 		</h3>
-		<img src="<?php $prep['img_path']; ?>" width=200 height=150/>
+		<img src="<?php echo $img['img_path']; ?>" width=200 height=150/>
 	</div>
+	<h2>Commentaire</h2>
+	<?php
+		$db = DataBase::getInstance();
+		$prep = $db->prepare("SELECT * FROM comments WHERE content = ? ORDER BY 'date' ");
+		$prep->execute(array($id));
+
+		while ($com = $prep->fetch())
+		{
+		?>
+		<p><strong><?php echo htmlspecialchars($com['author']);?></strong> le <?php echo nl2br($com['date']); ?></p>
+		<p><?php echo nl2br(htmlspecialchars($com['post']));?></p>
+		<?php
+		}
+		?>
 </body>
 </html>

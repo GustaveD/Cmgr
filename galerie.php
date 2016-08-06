@@ -21,24 +21,23 @@ $stmt->execute();
 while ($img = $stmt->fetch())
 {
 	echo "<div class='img'>";
-	echo '<h2><a title="'.$img['nom'].'" href="page.php?id='.$img['id'].'">'.$img['author'].'</a></h2>';
-	echo "<img src='".$img['img_path']."'width=200 height=150/>";
-	echo "<p>".$img['like']."<p>";
+	echo '<h2><a title="'.$img['author'].'" href="page.php?id='.$img['id'].'">'.$img['author'].'</a></h2>';
+	echo "<img src='".$img['img_path']."'width=200 height=150>";
+	echo "<p>".$img['like']."</p>";
+	echo "<p>".$img['date']."</p>";
 	echo "<br> <br>";
 	echo "<form action ='upload_com.php' method='post'";
 	echo "<label for='message'>Commentaire</label> : 
 		<input type='text' name='comment' id ='message'/>";
 	echo "<input type='submit' value='Envoyer'/>";
 	echo "</form>";
-?>
-	<form action = "commentaire.php" method='post'>
-		<input type='hidden' name ='author' value="<?php $img['author'];?>"/>
-		<input type='hidden' name ='id' value="<?php $img['id'];?>"/>
-		<input type='submit' name ="commentaires" value='commentaire'/>
-	</form>
-<?php
-	echo "<br> <br>";
+
+	echo "<form action='commentaire.php' method='post'>";
+	echo "<input type ='hidden' name='author' value='".$img['author']."'>";
+	echo "<input type ='hidden' name='id' value='".$img['id']."'>";
+	echo "<input type='submit'  name ='commentaires' value='commentaire'>";
 	echo "</form>";
+	echo "<br> <br>";
 	echo "</div>";
 }
 echo "<div class='spacer'></div>";
