@@ -22,7 +22,7 @@ session_start();
 			$prep->execute(array($_POST['author']));
 			$author = $prep->fetch();
 
-			Tools::sendEmail(Tools::NEW_COMMENT, $author, $content);
+			Tools::sendEmail(Tools::NEW_COMMENT, $author, $com);
 			echo "OOOK";
 	}
 	else

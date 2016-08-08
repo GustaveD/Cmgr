@@ -44,6 +44,8 @@ class Tools{
 				$content = file_get_contents('./mail_template/newcom.html');
 				$content = preg_replace("/%name%/", $user->name, $content);
 				$content = preg_replace("/%user_comment%/", $other->content, $content);
+				$content = preg_replace("/%user_name%/", $other->author, $content);
+				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/commentaire.php#" . $other->post, $content);
 				mail($user->mail, "[Instagrume] A user has commented your post!! check it out", $content, "From: noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
 			}
 			
