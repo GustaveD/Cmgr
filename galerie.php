@@ -29,6 +29,7 @@ while ($img = $stmt->fetch())
 	echo "<form action ='upload_com.php' method='post'";
 	echo "<label for='message'>Commentaire</label> : 
 		<input type='text' name='comment' id ='message'/>";
+	echo "<input type='hidden' name = 'author' value='".$img['author']."'>";
 	echo "<input type='submit' value='Envoyer'/>";
 	echo "</form>";
 

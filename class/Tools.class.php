@@ -39,9 +39,15 @@ class Tools{
 				mail($user->mail, "[Tof-ouf] Your new Pass is here!", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
 				break;
 			}
+
+			case Tools::NEW_COMMENT : {
+				$content = file_get_contents('./mail_template/newcom.html');
+				$content = preg_replace("/%name%/", $user->name, $content);
+				$content = preg_replace("/%user_comment%/", $other->content, $content);
+				mail($user->mail, "[Instagrume] A user has commented your post!! check it out", $content, "From: noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
+			}
 			
 			default:
-				# code...
 				break;
 		}
 
