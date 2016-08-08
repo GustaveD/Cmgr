@@ -15,10 +15,29 @@ session_start();
 		<div id = "title"><h1> TOF-OUF</h1> </div>
 	</header>
 <?php
+
 $db = Database::getInstance();
-$stmt = $db->prepare("SELECT * FROM imgs");
-$stmt->execute();
-while ($img = $stmt->fetch())
+$prep = $db->prepare("SELECT COUNT(img_path) as nbImg FROM imgs");
+$prep->execute();
+$data = $prep->fetch();
+
+if (isset($_GET['p'])){
+	$cPage = $_GET['p'];
+}
+else{
+	$cPage = 1;
+}
+
+$nbImg = $data['nbImg'];
+$perPage = 10;
+$nbPage = ceil($nbImg/$perPage);
+echo ($nbPage);
+
+
+$db = Database::getInstance();
+$prep = $db->prepare("SELECT * FROM imgs ORDER BY date DESC LIMIT ".(($cPage - 1)*$perPage).", $perPage");
+$prep->execute();
+while ($img = $prep->fetch())
 {
 	echo "<div class='img'>";
 	echo '<h2><a title="'.$img['author'].'" href="page.php?id='.$img['id'].'">'.$img['author'].'</a></h2>';
@@ -42,6 +61,11 @@ while ($img = $stmt->fetch())
 	echo "</div>";
 }
 echo "<div class='spacer'></div>";
+
+for ($i = 1; $i <= $nbPage; $i++){
+	echo "<a href=\"commentaire.php?p=$i\">$i</a> /";
+}
+
 ?>
 <footer id = "footer_site">
 <p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
