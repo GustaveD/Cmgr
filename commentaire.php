@@ -18,8 +18,8 @@ session_start();
 	</header>
 
 	<?php
-		$author = $_POST['author'];
-		$id = $_POST['id'];
+		$author = DataBase::no_sql_injection($_POST['author']);
+		$id = DataBase::no_sql_injection($_POST['id']);
 		$db = DataBase::getInstance();
 		$prep = $db->prepare("SELECT * FROM imgs WHERE id = ? and author = ?");
 		$prep->execute(array($id, $author));

@@ -34,7 +34,7 @@
 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		`img_path` varchar(36) DEFAULT NULL,
 		`author` varchar(36) DEFAULT NULL,
-		`likes` INT NOT NULL,
+		`likes` INT,
 		`date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	$co->prepare($req)->execute();

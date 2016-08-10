@@ -3,7 +3,7 @@ session_start();
 require_once './class/Dbase.class.php';
 require_once './class/User.class.php';
 
-	$login = $_POST['login'];
+	$login = Database::no_sql_injection($_POST['login']);
 	$pwd = $_POST['mdp'];
 
 	if (!$pwd || !$login){

@@ -1,15 +1,15 @@
 <?php
 require_once "./class/Dbase.class.php";
+require_once "./class/Tools.class.php";
 
 if (isset($_GET['type'], $_GET['id'])){
 
-	$type = $_GET['type'];
-	$id = (int)$_GET['id'];
-	$author =  $_GET['author'];
-
+	$type = DataBase::no_sql_injection($_GET['type']);
+	$id = DataBase::no_sql_injection($_GET['id']);
+	$author = DataBase::no_sql_injection($_GET['author']);
+	
 	switch ($type) {
 		case 'post':
-			
 			$db = DataBase::getInstance();
 			$prep = $db->prepare("SELECT * FROM likes WHERE post=? AND author=?");
 			$prep->execute(array($id, $author));
@@ -27,11 +27,10 @@ if (isset($_GET['type'], $_GET['id'])){
 			$prep->execute(array($id, $author));
 			$nb = $prep->fetch();
 			echo $nb['nb'];
-			$prep = $db->prepare("UPDATE imgs set likes = $nb WHERE author = $author AND id = $id");
-			$prep->execute(array($author, $id));
-			$like = $prep->fetch();
-			echo $like['like'];
+			$prep = $db->prepare("UPDATE imgs set likes =? WHERE author =? AND id =?");
+			$prep->execute(array($nb['nb'], $author, $id));
 			break;
 	}
-}	
+}
+
 ?>

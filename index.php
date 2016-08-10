@@ -32,7 +32,7 @@ session_start();
 	<nav id ="menu_top">
 		<ul>
 			<li><a id ="Montage" href = "take_photo.php">Montage</a></li>
-			<li><a id ="Galerie" href = "galerie2.php">Galerie</a></li>
+			<li><a id ="Galerie" href = "galerie.php">Galerie</a></li>
 			<li><a id ="inscription" href = "inscription.php">S'inscrire</a></li>
 		</ul>
 	</nav>
