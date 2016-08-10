@@ -7,7 +7,7 @@
 	catch (PDOException $e){
 		echo 'Connexion echouee' . $e->getMessage();
 	}
-	$requete = "CREATE DATABASE IF NOT EXISTS cam DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
+	$requete = "CREATE DATABASE IF NOT EXISTS cama DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$db->prepare($requete)->execute();
 	$co = DataBase::getInstance();
 	$req = "CREATE TABLE IF NOT EXISTS `users` (
@@ -34,9 +34,17 @@
 		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		`img_path` varchar(36) DEFAULT NULL,
 		`author` varchar(36) DEFAULT NULL,
-		`like` INT,
+		`likes` INT NOT NULL,
 		`date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+	$co->prepare($req)->execute();
+
+
+	$req = "CREATE TABLE IF NOT EXISTS `likes` (
+		`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		`author` varchar(36) DEFAULT NULL,
+		`post` varchar(36) DEFAULT NULL
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	$co->prepare($req)->execute();
 
 	$req = "CREATE TABLE IF NOT EXISTS `tokens` (

@@ -22,7 +22,7 @@
 			if (!filter_var($mail, FILTER_VALIDATE_EMAIL)){
 				echo "bad email";
 			}
-			$db = Database::getInstance();
+				$db = Database::getInstance();
 				$prep = $db->prepare("SELECT * FROM users WHERE mail=?");
 				$prep->execute(array($mail));
 				if ($prep->rowCount() == 0) {

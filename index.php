@@ -1,6 +1,6 @@
 <?php
-session_start();
 include_once('./config/setup.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,14 +26,14 @@ include_once('./config/setup.php');
 			<a href="forgot_mail.php">Mot de Passe oublié?</a>
 			<input type ="submit" value="Connexion">
 		</form>
+		<a id ="logout" href = "logout.php">Se deconnecter</a>
 		</section>
 	</header>
 	<nav id ="menu_top">
 		<ul>
 			<li><a id ="Montage" href = "take_photo.php">Montage</a></li>
-			<li><a id ="Galerie" href = "galerie.php">Galerie</a></li>
+			<li><a id ="Galerie" href = "galerie2.php">Galerie</a></li>
 			<li><a id ="inscription" href = "inscription.php">S'inscrire</a></li>
-			<li><a id ="logout" href = "logout.php">Se deconnecter</a></li>
 		</ul>
 	</nav>
 	<footer id = "footer_site">

@@ -50,7 +50,17 @@ class User{
 
 	public static function query($id){
 		$db = DataBase::getInstance();
-		$prep = $db->prepare("SELECT * FROM users WHERE name = '$id'");
+		$prep = $db->prepare("SELECT * FROM users WHERE id = '$id'");
+		$prep->setFetchMode(PDO::FETCH_INTO, new User(null));
+		if ($prep->execute())
+			return $prep->fetch();
+		else
+			return null;
+	}
+
+	public static function queryFromAuthor($name){
+		$db = DataBase::getInstance();
+		$prep = $db->prepare("SELECT * FROM users WHERE name = '$name'");
 		$prep->setFetchMode(PDO::FETCH_INTO, new User(null));
 		if ($prep->execute())
 			return $prep->fetch();

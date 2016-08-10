@@ -42,7 +42,8 @@ while ($img = $prep->fetch())
 	echo "<div class='img'>";
 	echo '<h2><a title="'.$img['author'].'" href="page.php?id='.$img['id'].'">'.$img['author'].'</a></h2>';
 	echo "<img src='".$img['img_path']."'width=200 height=150>";
-	echo "<p>".$img['like']."</p>";
+	echo "<a href=like.php?type=image&id='".$img['id']."'&author='".$img['author']."'>Like</a>";
+	echo "<p> x people like this".$img['like']."</p>";
 	echo "<p>".$img['date']."</p>";
 	echo "<br> <br>";
 	echo "<form action ='upload_com.php' method='post'";

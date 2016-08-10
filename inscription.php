@@ -15,17 +15,19 @@
 			<input id = "mdp" name="mdp" type ="password" required/>
 			<input type ="submit" value="Connexion">
 	-->
-			    <h2>Register</h2>
+			    <h2>S'inscrire</h2>
 			  <form method="post" action="insertuser.php">
+			 	<div class="formulaire">
   					<label for="mail">Email</label>
-  					<input type="email" name="mail" placeholder="email" /><br />
+  					<input type="email" name="mail" placeholder="email" required /><br />
 	    			<label for="name">Name</label>
-	    			<input type="text" name="name" placeholder="name" /><br />
+	    			<input type="text" name="name" placeholder="name" required /><br />
   					<label for="password">Password</label>
-  					<input type="password" name="password" placeholder="password"/><br />
-  					<!--<label for="password">Confirm</label>
-  					<input type="password" name="passwordConfirm" placeholder="password"/><br /> -->
-			  <input type ="submit" value="Connexion">
+  					<input type="password" name="password" placeholder="password" required/><br />
+ 					<label for="text">Confirm</label>
+  					<input type="text" name="password_confirm" placeholder="password_confirm" required/><br>
+			  <input type ="submit" class="btn btn-primary" value="Connexion">
+			  </div>
 		</div>
 </body>
 </html>
