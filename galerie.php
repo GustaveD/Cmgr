@@ -62,11 +62,9 @@ while ($img = $prep->fetch()){
 		<br><br>
 	</div>
 <?php endforeach; ?>
-<?php 
-	for ($i = 1; $i <= $nbPage; $i++){
-		echo "<a href=\"commentaire.php?p=$i\"></a> /";
-	}
-?>
+<?php  for ($i = 1; $i <= $nbPage; $i++) : ?>
+	<a href="galerie.php?p=<?php echo $i; ?>"> <?php echo $i; ?> / </a>
+<?php endfor; ?>
 <footer id = "footer_site">
 <p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
 	<div></div>

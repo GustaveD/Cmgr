@@ -5,12 +5,6 @@ class Tools{
 	const FORGOT_TYPE = 1;
 	const NEW_COMMENT = 2;
 
-	public static function gen_uuid(){
-		return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
-			mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff),
-			mt_rand(0, 0x0fff) | 0x4000, mt_rand(0, 0x3fff) | 0x8000,
-			mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff));
-	}
 
 	public static function sendEmail($type, $user, $other = null){
 		switch ($type) {
@@ -24,7 +18,7 @@ class Tools{
 				echo "id=".$user->id;
 				echo $content;
 				echo $user->mail;
-				mail($user->mail, "Valid yur account to use our site !", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
+				mail($user->mail, "Valid your account to use our site !", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
 				break;
 			}
 			case Tools::FORGOT_TYPE : {

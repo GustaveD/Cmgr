@@ -32,5 +32,4 @@ if (isset($_GET['type'], $_GET['id'])){
 			break;
 	}
 }
-
 ?>
