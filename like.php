@@ -2,7 +2,7 @@
 require_once "./class/Dbase.class.php";
 require_once "./class/Tools.class.php";
 
-if (isset($_GET['type'], $_GET['id'])){
+if (isset($_GET['type'], $_GET['id'], $_SESSION['user'])){
 
 	$type = DataBase::no_sql_injection($_GET['type']);
 	$id = DataBase::no_sql_injection($_GET['id']);
@@ -30,6 +30,7 @@ if (isset($_GET['type'], $_GET['id'])){
 			$prep = $db->prepare("UPDATE imgs set likes =? WHERE author =? AND id =?");
 			$prep->execute(array($nb['nb'], $author, $id));
 			break;
-	}
-}
+		}
+} else
+	echo "Need to log for comment";
 ?>

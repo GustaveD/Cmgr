@@ -9,16 +9,10 @@ class Tools{
 	public static function sendEmail($type, $user, $other = null){
 		switch ($type) {
 			case Tools::VALID_TYPE : {
-				//creer un cookie
-				//prendre le patron, remplacer les variables et envoyer le mail
-	
 				$content = file_get_contents('mail_template/register.html');
 				$content = preg_replace("/%name%/", $user->name, $content);
-				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/cmgr/mail.php?type=valid&code=" . $user->name, $content);
-				echo "id=".$user->id;
 				echo $content;
-				echo $user->mail;
-				mail($user->mail, "Valid your account to use our site !", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
+				mail($user->mail, "[Tof-ouf]Valid your account to use our site !", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
 				break;
 			}
 			case Tools::FORGOT_TYPE : {
@@ -32,10 +26,10 @@ class Tools{
 			case Tools::NEW_COMMENT : {
 				$content = file_get_contents('./mail_template/newcom.html');
 				$content = preg_replace("/%name%/", $user->name, $content);
-				$content = preg_replace("/%user_comment%/", $other->content, $content);
+				$content = preg_replace("/%user_comment%/", $other->post, $content);
 				$content = preg_replace("/%user_name%/", $other->author, $content);
-				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/commentaire.php#" . $other->post, $content);
-				mail($user->mail, "[Instagrume] A user has commented your post!! check it out", $content, "From: noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
+				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/commentaire.php" . $other->post, $content);
+				mail($user->mail, "[Tof-ouf] A user has commented your post!! check it out", $content, "From: noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
 			}
 			
 			default:
@@ -51,6 +45,14 @@ class Tools{
 	public static function debug($var){
 
 		echo '<pre>' . print_r($var, true) . '</pre>';
+	}
+
+	public static function verif_mdp($password){
+		if ($password != strtolower($password) and strpbrk($password, '0123456789') !== false){
+			return '1';
+		} else{
+			return '0';
+		}
 	}
 
 }

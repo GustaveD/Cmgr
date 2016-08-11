@@ -10,7 +10,7 @@ session_start();
 	{
 		echo $_POST['comment'];
 			$content = preg_replace('/<[^>]*>/', '', $_POST['comment']);
-			$com = new Comment(array('author' => $_SESSION['user_name'], 'content' => $_SESSION['user'], 'post' => $content));
+			$com = new Comment(array('author' => $_SESSION['user_name'], 'content' => $_POST['id_img'], 'post' => $content));
 			try {
 				$com->create();
 			}

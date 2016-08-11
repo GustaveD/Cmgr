@@ -13,7 +13,6 @@ session_start();
 	<header>
 		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
 		<div id = "title"><h1> TOF-OUF</h1> </div>
-		<!--<div id = "img-logo"><img src="./img/logo.png"></div>-->
 		<section id="connexion">
 		<form method="post" action="connexion.php">
 			<label for="id">Identifiant</label>
@@ -21,7 +20,6 @@ session_start();
 		</br>
 			<label for="mdp">Mot de Passe</label>
 			<input id = "mdp" name = "mdp" type = "password" required />
-			<!--<a href="#" id = "pwd_oubli"> Mot de Passe oulbié?</a>-->
 			</br>
 			<a href="forgot_mail.php">Mot de Passe oublié?</a>
 			<input type ="submit" value="Connexion">

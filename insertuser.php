@@ -11,6 +11,12 @@ require_once  './class/Tools.class.php';
 		$pwd = DataBase::no_sql_injection($_POST['password']);
 		$errors = array();
 
+		if (!Tools::verif_mdp($pwd)){
+			$errors['name'] = "Le Mot de passe doit contenir au moins une majuscule et un chiffre";
+			return ;
+		}
+
+
 		if (empty($name) || !preg_match('/^[a-zA-Z0-9_]+$/', $name)){
 			$errors['name'] = "Votre Pseudo n'est pas valide";
 		}

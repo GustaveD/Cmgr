@@ -3,23 +3,20 @@ require_once './class/Dbase.class.php';
 require_once './class/User.class.php';
 require_once './class/Img.class.php';
 session_start();
+
 $db = Database::getInstance();
 $prep = $db->prepare("SELECT COUNT(img_path) as nbImg FROM imgs");
 $prep->execute();
 $data = $prep->fetch();
 
-if (isset($_GET['p'])){
+if (isset($_GET['p']))
 	$cPage = DataBase::no_sql_injection($_GET['p']);
-}
-else{
+else
 	$cPage = 1;
-}
 
 $nbImg = $data['nbImg'];
 $perPage = 10;
 $nbPage = ceil($nbImg/$perPage);
-echo ($nbPage);
-
 
 $db = Database::getInstance();
 $prep = $db->prepare("SELECT * FROM imgs ORDER BY date DESC LIMIT ".(($cPage - 1)*$perPage).", $perPage");
@@ -27,8 +24,8 @@ $prep->execute();
 while ($img = $prep->fetch()){
 	$post[] = $img;
 }
-
 ?>
+
 <html>
 <head>
 	<title>GALERIE</title>
@@ -52,6 +49,7 @@ while ($img = $prep->fetch()){
 			<label for='message'>Commentaires</label>
 			<input type="text" name="comment" id='message'/>
 			<input type="hidden" name="author" value="<?php echo $post['author']; ?>"/>
+			<input type="hidden" name="id_img" value="<?php echo $post['id']; ?>"/>
 			<input type="submit" value="Envoyer"/>
 		</form>
 		<form action ="commentaire.php" method="post"/>
