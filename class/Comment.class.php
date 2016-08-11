@@ -39,5 +39,11 @@ class Comment{
 		else
 			return null;
 	}
+
+	public function delete(){
+		$db = DataBase::getInstance();
+		$prep = $db->prepare("DELETE FROM comments WHERE id = ?");
+		$prep->execute(array($this->id));
+	}
 }
 ?>

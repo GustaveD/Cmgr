@@ -52,6 +52,7 @@ while ($img = $prep->fetch()){
 			<input type="hidden" name="id_img" value="<?php echo $post['id']; ?>"/>
 			<input type="submit" value="Envoyer"/>
 		</form>
+			<a href="delete.php?id=<?php echo $post['id']; ?>&author=<?php echo $post['author']; ?>"> X </a>
 		<form action ="commentaire.php" method="post"/>
 			<input type="hidden" name="author" value="<?php echo $post['author']; ?>"/>
 			<input type="hidden" name="id" value="<?php echo $post['id']; ?>"/>

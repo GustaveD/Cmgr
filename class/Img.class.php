@@ -28,6 +28,16 @@ class Img
 		$prep->execute(array($this->id,$this->img_path, $this->author));
 	}
 
+	public static function query($id, $author) {
+		$db = Database::getInstance();
+		$stmt = $db->prepare("SELECT * FROM imgs WHERE id = '$id' AND author = '$author'");
+		$stmt->setFetchMode(PDO::FETCH_INTO, new Img(null));
+		if ($stmt->execute())
+			return $stmt->fetch();
+		else
+			return null;
+	}
+
 	public static function fromAuthor( $author ) {
 		$db = Database::getInstance();
 		$prep = $db->prepare("SELECT * FROM imgs WHERE author = ? ORDER BY date DESC");
@@ -53,6 +63,12 @@ class Img
 			return $prep->fetchAll(PDO::FETCH_OBJ);
 		else
 			return array();
+	}
+
+	public static function delete($id, $author){
+		$db = DataBase::getInstance();
+		$prep = $db->prepare("DELETE FROM imgs WHERE id = '$id' AND author = '$author'");
+		$prep->execute();
 	}
 }
 ?>

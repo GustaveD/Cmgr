@@ -1,10 +1,10 @@
 <?php
 
 class Tools{
+
 	const VALID_TYPE = 0;
 	const FORGOT_TYPE = 1;
 	const NEW_COMMENT = 2;
-
 
 	public static function sendEmail($type, $user, $other = null){
 		switch ($type) {
@@ -30,6 +30,7 @@ class Tools{
 				$content = preg_replace("/%user_name%/", $other->author, $content);
 				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/commentaire.php" . $other->post, $content);
 				mail($user->mail, "[Tof-ouf] A user has commented your post!! check it out", $content, "From: noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
+				break;
 			}
 			
 			default:
@@ -43,7 +44,6 @@ class Tools{
 	}
 
 	public static function debug($var){
-
 		echo '<pre>' . print_r($var, true) . '</pre>';
 	}
 
