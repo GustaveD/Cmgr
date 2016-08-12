@@ -5,12 +5,12 @@ window.addEventListener("DOMContentLoaded", function() {
 		video = document.getElementById("video"),
 		videoObj = { "video": true },
 		errBack = function(error) {
-			console.log("Video capture error: ", error.code); 
+			console.log("Video capture error: ", error.code);
 document.getElementById("snap").addEventListener('click', function() {
 	context.drawImage(img, 640, 480, 640, 480);
-	alert("test");
 });
 		};
+
 
 	// Put video listeners into place
 	if(navigator.getUserMedia) { // Standard
@@ -32,23 +32,31 @@ document.getElementById("snap").addEventListener('click', function() {
 	}
 
 }, false);
+var ctx;
+var save = new Image();
 
 function takepick()
 {
-	var cv = document.getElementById("canvas"),
-		ctx = cv.getContext('2d');
-	var v = document.getElementById("video");
-	ctx.drawImage(video, 0, 0, 680, 480);
+	var cv = document.getElementById("canvas");
+	ctx = cv.getContext('2d');
+	v = document.getElementById("video");
+	ctx.drawImage(v, 0, 0, 680, 480);
+	document.getElementById("up").style.display = 'block';
 };
-function uploadEx(masque)
+
+function uploadEx()
 {
+	var masque = ret_img();
+	masque++;
+	console.log(masque);
 	var canvas = document.getElementById("canvas");
 	var dataURL = canvas.toDataURL("image/png");
 	document.getElementById('hidden_data').value = dataURL;
 	var fd = new FormData(document.forms["form1"]);
 	fd.append("variable1", masque);
+	console.log(masque);
 	var xhr = new XMLHttpRequest();
-	xhr.open('POST', './upload_data.php', false);
+	xhr.open('POST', './upload_data.php');
 	xhr.upload.onprogress = function(e) {
  		if (e.lengthComputable) {
 			var percentComplete = (e.loaded / e.total) * 100;

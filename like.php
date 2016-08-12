@@ -1,7 +1,7 @@
 <?php
 require_once "./class/Dbase.class.php";
 require_once "./class/Tools.class.php";
-
+session_start();
 if (isset($_GET['type'], $_GET['id'], $_SESSION['user'])){
 
 	$type = DataBase::no_sql_injection($_GET['type']);
