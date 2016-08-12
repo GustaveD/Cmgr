@@ -3,13 +3,24 @@
 		padding : 10px;
 }
 
-#top {
+.top {
 	display:table-cell;
 	padding :5px;
 }
 
-#bot {
+.bot {
 	display:table-cell;
 	padding :5px;
 }
 
+#video {
+	position:absolute;
+	left : 20;
+	top : 245;
+}
+
+#cv2 {
+	position:relative;
+	opacity:0.8;
+	background: transparent;
+}

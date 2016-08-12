@@ -14,7 +14,10 @@ require_once './class/User.class.php';
 		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
 		<div id = "title"><h1> TOF-OUF</h1> </div>
 	</header>
-	<?php
+<?php
+$db = Database::getInstance();
+$stmt = $db->prepare("SELECT * FROM imgs WHERE author = ?");
+$stmt->execute(array($_SESSION['user_name']));
 if (isset($_SESSION['user']))
 {
 echo '
@@ -24,22 +27,31 @@ echo '
 	  <meta charset="utf-8">
 	  <title>Titre de la page</title>
 	</head>
+	<script src="script.js"></script>
+	<script src="preview.js"></script>
 	<body>
 	<div id="align">
-	<video id="video" width="640" height="480" autoplay></video>
+	<video id="video" width="640" height="480" autoplay poster="./img/masque1.png"></video>
+	<canvas width="640" height="480" id="cv2"></canvas>';
+while ($img = $stmt->fetch())
+{
+	echo "<div class='img'>";
+	echo "<img src='".$img['img_path']."'width=200 height=150/>";
+	echo "<p>".$img['like']."<p>";
+	echo "</div>";
+}
+echo '
 	</div>
-
 	<div id="align">
-	<form method="post" value="Upload">
-		<input src="./img/masque1.png" type="image" id="top" onclick="uploadEx(1)" width="128" height="128">
-		<input src="./img/masque2.png" type="image" id="top" onclick="uploadEx(2)" width="128" height="128">
-		<input src="./img/masque3.png" type="image" id="bot" onclick="uploadEx(3)" width="128" height="128">
-		<input src="./img/masque4.png" type="image" id="bot" onclick="uploadEx(4)" width="128" height="128">
-			<input type="submit" value="select">
-		</form>
-		<div>
-	<button onclick="takepick()" id="snap">Snap Photo</button>
-	</div>
+	<input src="./img/masque1.png" type="image" class="top" onclick="set_box(0)" width="128" height="128">
+	<img src="./img/masque1.png" id="e1" style="display:none;" >
+		<input src="./img/masque2.png" class="top" type="image"  onclick="set_box(1)" width="128" height="128">
+	<img src="./img/masque2.png" id="e2" style="display: none;" >
+		<input src="./img/masque3.png" class="top" type="image" onclick="set_box(2)" width="128" height="128">
+	<img src="./img/masque3.png" id="e3" style="display: none;" >
+		<input src="./img/masque4.png" class="top" type="image" onclick="set_box(3)" width="128" height="128">
+	<img src="./img/masque4.png" id="e4" style="display: none;" >
+	<div>
 	<form method="post" accept-charset="utf-8" name="form1">
 		<input name="hidden_data" id="hidden_data" type="hidden"/>
 		</form>
@@ -47,10 +59,12 @@ echo '
 	<p><input type="file" name="fichier" size="30">
 		<input type="submit" name="upload" value="Uploader"><p>
 	</form>
+		<button style="display:none" onclick="takepick()" id="snap">Snap Photo</button>
+		<button style="display:none" onclick="uploadEx()" id="up">Upload Photo</button>
+	</div>
 	<div>
 	<canvas id="canvas" width="640" height="480"></canvas>
 	</div>
-	<script src="script.js"></script>
 	</body>
 	</html>';
 }

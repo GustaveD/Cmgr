@@ -8,7 +8,7 @@ session_start();
 $upload_dir = "./img/";
 $img = $_POST['hidden_data'];
 $Msq = $_POST['variable1'];
-$Msq = "masque".$Msq.".png";
+$Msq = "./img/masque".$Msq.".png";
 
 $img = str_replace('data:image/png;base64,', '', $img);
 $img = str_replace(' ', '+', $img);
@@ -17,14 +17,15 @@ $file = $upload_dir . $_SESSION['user_name'] . mktime() . ".png";
 $success = file_put_contents($file, $data);
 $stamp = imagecreatefrompng($Msq);
 $im = imagecreatefrompng($file);
+$thumb = imagecreate(170, 170);
 $marge_right = 10;
 $marge_bottom = 10;
 $sx = imagesx($stamp);
 $sy = imagesy($stamp);
-$sx = $sx;
-$sy = $sy;
+imagecopyresized($thumb, $stamp, 0, 0, 0, 0, 170, 170, $sx, $sy);
+imagepng($thumb);
 
-imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp) , imagesy($stamp));
+imagecopy($im, $thumb, 210, 130, 0, 0, imagesx($thumb) , imagesy($thumb));
 
 imagepng($im, $file);
 imagedestroy($im);
