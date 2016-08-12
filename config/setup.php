@@ -47,11 +47,4 @@
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 	$co->prepare($req)->execute();
 
-	$req = "CREATE TABLE IF NOT EXISTS `tokens` (
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `user` varchar(36) DEFAULT NULL,
-  `type` enum('FORGOT_PASSWORD','REGISTER') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-	$co->prepare($req)->execute();
-
 ?>
