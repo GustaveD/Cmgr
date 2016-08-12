@@ -11,21 +11,29 @@ session_start();
 </head>
 <body>
 	<header>
-		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
-		<div id = "title"><h1> TOF-OUF</h1> </div>
-		<section id="connexion">
-		<form method="post" action="connexion.php">
-			<label for="id">Identifiant</label>
-			<input id = "login" name="login" type ="text" required />
-		</br>
-			<label for="mdp">Mot de Passe</label>
-			<input id = "mdp" name = "mdp" type = "password" required />
-			</br>
-			<a href="forgot_mail.php">Mot de Passe oublié?</a>
-			<input type ="submit" value="Connexion">
-		</form>
-		<a id ="logout" href = "logout.php">Se deconnecter</a>
-		</section>
+		<div class = "boxes">
+			<div class ="box-content">
+				<div id = "logo"><a href="./index.php"><img 	src="./img/logo.png" width	="75px" height="75px	" alt ="logo du site" title="Tof-Ouf"></a></div>
+			</div>
+			<div class="box-content">
+				<div id = "title"><h1> TOF-OUF</h1> </div>
+			</div>
+			<div class="box-content">
+				<div id="connexion">
+				<form method="post" action="connexion.php">
+					<label for="id">Identifiant</label>
+					<input id = "login" name="login" type ="text" required />
+					</br>
+					<label for="mdp">Mot de Passe</label>
+					<input id = "mdp" name = "mdp" type = "password" required />
+					</br>
+					<a href="forgot_mail.php">Mot de Passe 	oublié?</a>
+					<input type ="submit" value="Connexion">
+				</form>
+				<a id ="logout" href = "logout.php">Se 	deconnecter</a>
+				</div>
+			</div>
+		</div>
 	</header>
 	<nav id ="menu_top">
 		<ul>
