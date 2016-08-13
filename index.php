@@ -27,25 +27,22 @@ session_start();
 					<label for="mdp">Mot de Passe</label>
 					<input id = "mdp" name = "mdp" type = "password" required />
 					</br>
-					<a href="forgot_mail.php">Mot de Passe 	oublié?</a>
 					<input type ="submit" value="Connexion">
 				</form>
+				<a href="forgot_mail.php">Mot de Passe 	oublié?</a></br>
 				<a id ="logout" href = "logout.php">Se 	deconnecter</a>
 				</div>
 			</div>
 		</div>
 	</header>
-	<nav id ="menu_top">
-		<ul>
-			<li><a id ="Montage" href = "take_photo.php">Montage</a></li>
-			<li><a id ="Galerie" href = "galerie.php">Galerie</a></li>
-			<li><a id ="inscription" href = "inscription.php">S'inscrire</a></li>
-		</ul>
-	</nav>
+		<div class= "Menu">
+			<div class="module"><a id ="mod" href = "take_photo.php"><p>Montage<p></a></div>
+			<div class="module"><a id ="mod" href = "galerie.php"><p>Galerie<p></a></div>
+			<div class="module"><a id ="mod" href = "inscription.php"><p>S'inscrire<p></a></div>
+		</div>
 	<footer id = "footer_site">
-<p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
-	<div></div>
-</footer>
+		<p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
+	</footer>
 
 </body>
 </html>
