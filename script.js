@@ -20,12 +20,12 @@ document.getElementById("snap").addEventListener('click', function() {
 		}, errBack);
 	} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
 		navigator.webkitGetUserMedia(videoObj, function(stream){
-			video.src = window.webkitURL.createObjectURL(stream);
+			video.src = window.URL.createObjectURL(stream);
 			video.play();
 		}, errBack);
 	}
-	else if(navigator.mozGetUserMedia) { // Firefox-prefixed
-		navigator.mozGetUserMedia(videoObj, function(stream){
+	else if(navigator.mediaDevices.getUserMedia) { // Firefox-prefixed
+		navigator.mediaDevices.getUserMedia(videoObj, function(stream){
 			video.src = window.URL.createObjectURL(stream);
 			video.play();
 		}, errBack);
@@ -61,7 +61,9 @@ function uploadEx()
  		if (e.lengthComputable) {
 			var percentComplete = (e.loaded / e.total) * 100;
 			console.log(percentComplete + '% uploaded');
-			alert('Succesfully uploaded');
+		setTimeout(function() {
+			window.location = "take_photo.php"
+				},500);
 		}
 
 	};

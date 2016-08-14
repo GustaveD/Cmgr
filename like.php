@@ -29,8 +29,19 @@ if (isset($_GET['type'], $_GET['id'], $_SESSION['user'])){
 			echo $nb['nb'];
 			$prep = $db->prepare("UPDATE imgs set likes =? WHERE author =? AND id =?");
 			$prep->execute(array($nb['nb'], $author, $id));
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "galerie.php"
+				},2000);
+	</script>';
 			break;
 		}
-} else
+} else{
 	echo "Need to log for comment";
+	echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "galerie.php"
+				},2000);
+	</script>';
+}
 ?>

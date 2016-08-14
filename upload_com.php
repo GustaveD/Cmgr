@@ -23,8 +23,20 @@ session_start();
 			$author = $prep->fetch();
 
 			Tools::sendEmail(Tools::NEW_COMMENT, $author, $com);
-			echo "OOOK";
+			echo "  ==> OOOK";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "galerie.php"
+				},2000);
+	</script>';
+}
+	else{
+		echo "NOPE : CONNECTE TOI !";
+		echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "galerie.php"
+				},2000);
+	</script>';
 	}
-	else
-		echo "fuuck";
+
 ?>

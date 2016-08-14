@@ -1,25 +1,10 @@
 <?php
-session_start();
-require_once './class/Dbase.class.php';
-require_once './class/User.class.php';
-?>
-<html>
-<head>
-	<title>MONTAGE</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="style01.css">
-</head>
-<body>
-	<header>
-		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
-		<div id = "title"><h1> TOF-OUF</h1> </div>
-	</header>
-<?php
-$db = Database::getInstance();
-$stmt = $db->prepare("SELECT * FROM imgs WHERE author = ?");
-$stmt->execute(array($_SESSION['user_name']));
+include 'header.php';
 if (isset($_SESSION['user']))
 {
+	$db = Database::getInstance();
+	$stmt = $db->prepare("SELECT * FROM imgs WHERE author = ?");
+	$stmt->execute(array($_SESSION['user_name']));
 echo '
 	<!doctype html>
 	<html lang="fr">
@@ -68,11 +53,7 @@ echo '
 	</body>
 	</html>';
 }
-else
-	echo 'GROS FILS DE PUTE CONNECTE TOI (MERDE)';
-	//header("Location: ./index.php");
-?>
-<footer id = "footer_site">
+?><footer id = "footer_site">
 <p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
 	<div></div>
 </footer>

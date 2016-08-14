@@ -19,20 +19,36 @@ $prep->execute(array($id));
 while ($com = $prep->fetch()){
 	$coms[] = $com;
 }
-
-?>
-<html>
+if (isset($_SESSION['user']))
+{
+echo'<html>
 <head>
-	<title>COMMENTAIRES</title>
+	<title>Camagru</title>
 	<link rel="stylesheet" href="style.css">
-</head>
+	<link rel="stylesheet" href="style01.css">
 </head>
 <body>
 	<header>
-		<div id = "logo"><a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a></div>
-		<div id = "title"><h1> TOF-OUF</h1> </div>
-	</header>
-
+		<a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
+		<h1> TOF-OUF</h1> 
+		<a id="logout" href="logout.php">LOG OUT</a>
+	</header>';
+}
+else
+{
+echo'<html>
+<head>
+	<title>Camagru</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style01.css">
+</head>
+<body>
+	<header>
+		<a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
+		<h1> TOF-OUF</h1> 
+	</header>';
+}
+?>
 	<h1> COMMENTAIIIIRES </h1>
 	<div class ="img">
 		<h3>

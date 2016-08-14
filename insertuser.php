@@ -13,12 +13,24 @@ require_once  './class/Tools.class.php';
 
 		if (!Tools::verif_mdp($pwd)){
 			$errors['name'] = "Le Mot de passe doit contenir au moins une majuscule et un chiffre";
+			echo  "Le Mot de passe doit contenir au moins une majuscule et un chiffre";
+echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 			return ;
 		}
 
 
 		if (empty($name) || !preg_match('/^[a-zA-Z0-9_]+$/', $name)){
 			$errors['name'] = "Votre Pseudo n'est pas valide";
+			echo "Votre Pseudo n'est pas valide";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 		}
 		else { 
 			$db = DataBase::getInstance();
@@ -38,6 +50,12 @@ require_once  './class/Tools.class.php';
 		}
 		if (empty($mail) || !filter_var($mail, FILTER_VALIDATE_EMAIL)){
 			$errors['mail'] = "Votre mail n'est pas valide";
+			echo "Votre mail n'est pas valide";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 		}
 		else {
 			$db = DataBase::getInstance();
@@ -55,6 +73,12 @@ require_once  './class/Tools.class.php';
 		}
 		if (empty($pwd) || $pwd != $_POST['password_confirm']){
 			$error['password'] = "Votre Password n'est pas valide";
+			echo  "Votre Password n'est pas valide";
+			echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "index.php"
+				},2000);
+	</script>';
 		}
 
 		if (strlen($pwd) < 5 || strlen($name) < 5) {
