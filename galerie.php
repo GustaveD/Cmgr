@@ -56,7 +56,8 @@ echo'<html>
 ?>
 
 
-<?php foreach ($post as $post): ?>
+<?php if($post)
+		 foreach ($post as $post): ?>
 	<div class="posts">
 		<h3><?php echo $post['author']; ?></h3>
 		<img src="<?php echo $post['img_path']; ?>" width=200 height=150>
