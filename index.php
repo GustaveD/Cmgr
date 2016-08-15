@@ -1,6 +1,6 @@
 	<?php
+	session_start();
 include_once('./config/setup.php');
-session_start();
 ?>
 <!DOCTYPE html>
 <html>
