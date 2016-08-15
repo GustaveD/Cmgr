@@ -1,4 +1,4 @@
-<?php
+	<?php
 include_once('./config/setup.php');
 session_start();
 ?>
@@ -38,7 +38,7 @@ if (!isset($_SESSION['user']))
 		</div>';
 }
 else{
-		echo '<a id ="logout" href = "logout.php">Se 	deconnecter</a>';
+		echo '<a id ="logout" href = "logout.php">Se deconnecter</a>';
 }?>
 	</header>
 		<div class= "Menu">

@@ -1,7 +1,7 @@
 <?php
-session_start();
 require_once './class/Dbase.class.php';
 require_once './class/User.class.php';
+session_start();
 
 if (isset($_SESSION['user']))
 {

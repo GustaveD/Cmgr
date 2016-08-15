@@ -9,19 +9,13 @@ if (isset($_SESSION['user'])){
 		$id = DataBase::no_sql_injection($_GET['id']);
 		$author = DataBase::no_sql_injection($_GET['author']);
 		$post = Img::query($id, $author);
-
-		echo $_SESSION['user_name'];
-		echo "<br>";
-		echo $post->author;
-		echo "<br>";
-		echo $post->id;
-		echo "<br>";
-		var_dump($post);
 		if ($post == null)
 			echo "no post to delete";
-		if ($post->author !== $_SESSION['user_name'])
+		if ($post->author != $_SESSION['user_name']){
 			echo "You are not the author of the post";
-		$post->delete($id, $author);
+		} else{
+			$post->delete($id, $author);
+		}
 	} else
 		echo "problem with image";
 } else
