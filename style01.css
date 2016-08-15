@@ -16,11 +16,9 @@
 #video {
 	position:absolute;
 	left : 20;
-	top : 245;
 }
 
 #cv2 {
-	position:relative;
 	opacity:0.8;
 	background: transparent;
 }

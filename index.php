@@ -17,7 +17,10 @@ session_start();
 			</div>
 			<div class="box-content">
 				<div id = "title"><h1> TOF-OUF</h1> </div>
-			</div>
+<?php
+if (!isset($_SESSION['user']))
+{
+			echo'</div>
 			<div class="box-content">
 				<div id="connexion">
 				<form method="post" action="connexion.php">
@@ -30,10 +33,13 @@ session_start();
 					<input type ="submit" value="Connexion">
 				</form>
 				<a href="forgot_mail.php">Mot de Passe 	oublié?</a></br>
-				<a id ="logout" href = "logout.php">Se 	deconnecter</a>
 				</div>
 			</div>
-		</div>
+		</div>';
+}
+else{
+		echo '<a id ="logout" href = "logout.php">Se 	deconnecter</a>';
+}?>
 	</header>
 		<div class= "Menu">
 			<div class="module"><a id ="mod" href = "take_photo.php"><p>Montage<p></a></div>

@@ -22,7 +22,11 @@ if (isset($_POST['upload']))
 	else if (!move_uploaded_file($tmp_file, $content_dir.$name_file))
 		exit ("impossible de copier le fichier dans $content_dir");
 	echo "Le fichier a bien ete upload";
-
+	echo '<script type="text/javascript">
+		setTimeout(function() {
+			window.location = "take_photo.php"
+				},2000);
+	</script>';
 	$img = new Img(array('author' => $_SESSION['user_name'], 'img_path' => $content_dir . $name_file));
 	try{
 		$img->create();
