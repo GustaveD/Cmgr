@@ -1,7 +1,7 @@
-	<?php
+<?php
 include_once('./config/setup.php');
 session_start();
-?>
+echo'
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +16,7 @@ session_start();
 				<div id = "logo"><a href="./index.php"><img 	src="./img/logo.png" width	="75px" height="75px	" alt ="logo du site" title="Tof-Ouf"></a></div>
 			</div>
 			<div class="box-content">
-				<div id = "title"><h1> TOF-OUF</h1> </div>
-<?php
+				<div id = "title"><h1> TOF-OUF</h1> </div>';
 if (!isset($_SESSION['user']))
 {
 			echo'</div>
