@@ -21,7 +21,7 @@ a:link
 
 body{
 	font-family: 'caviar_dreamsregular';
-	color: rgb(0, 119, 127);
+	color: rgb(80, 119, 127);
 	background: rgb(17, 113, 127) repeat-y; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(rgb(17, 113, 127), rgb(17, 213, 127)) repeat-y; /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(rgb(17, 113, 127), rgb(17, 213, 127)) repeat-y; /* For Opera 11.1 to 12.0 */

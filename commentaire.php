@@ -19,9 +19,9 @@ $prep->execute(array($id));
 while ($com = $prep->fetch()){
 	$coms[] = $com;
 }
-?>
-<?php if (isset($_SESSION['user'])): ?>
-<html>
+if (isset($_SESSION['user']))
+{
+echo'<html>
 <head>
 	<title>Camagru</title>
 	<link rel="stylesheet" href="style.css">
@@ -32,9 +32,11 @@ while ($com = $prep->fetch()){
 		<a href="./index.php"><img src="./img/logocamgru2.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
 		<h1> TOF-OUF</h1> 
 		<a id="logout" href="logout.php">LOG OUT</a>
-	</header>
-<?php else: ?>
-<html>
+	</header>';
+}
+else
+{
+echo'<html>
 <head>
 	<title>Camagru</title>
 	<link rel="stylesheet" href="style.css">
@@ -44,8 +46,9 @@ while ($com = $prep->fetch()){
 	<header>
 		<a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
 		<h1> TOF-OUF</h1> 
-	</header>
-<?php endif ?>
+	</header>';
+}
+?>
 	<h1> COMMENTAIIIIRES </h1>
 	<div class ="img">
 		<h3>
