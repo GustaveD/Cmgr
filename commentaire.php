@@ -19,9 +19,9 @@ $prep->execute(array($id));
 while ($com = $prep->fetch()){
 	$coms[] = $com;
 }
-if (isset($_SESSION['user']))
-{
-echo'<html>
+?>
+<?php if (isset($_SESSION['user'])): ?>
+<html>
 <head>
 	<title>Camagru</title>
 	<link rel="stylesheet" href="style.css">
@@ -32,11 +32,9 @@ echo'<html>
 		<a href="./index.php"><img src="./img/logocamgru2.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
 		<h1> TOF-OUF</h1> 
 		<a id="logout" href="logout.php">LOG OUT</a>
-	</header>';
-}
-else
-{
-echo'<html>
+	</header>
+<?php else: ?>
+<html>
 <head>
 	<title>Camagru</title>
 	<link rel="stylesheet" href="style.css">
@@ -46,9 +44,8 @@ echo'<html>
 	<header>
 		<a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
 		<h1> TOF-OUF</h1> 
-	</header>';
-}
-?>
+	</header>
+<?php endif ?>
 	<h1> COMMENTAIIIIRES </h1>
 	<div class ="img">
 		<h3>

@@ -15,10 +15,10 @@ session_start();
 	<header>
 			<div class = "boxes">
 				<div class ="box-content">
-					<div id = "logo"><a href="./index.php"><img src="./img/logocamagru2.png" width	="100%" height="100%	" alt ="logo du site" title="Tof-Ouf"></a></div>
+					<div id = "logo"><a href="./index.php"><img src="./img/logocamagru2.png" width	="100%" height="100%" alt ="logo du site" title="Tof-Ouf"></a></div>
+				</div>
 				<div class="box-content">
 					<a id="logout" href="logout.php">se déconnecter</a></div>
-			</div>
 	</header>
 <?php else: ?>
 <!DOCTYPE html>

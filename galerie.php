@@ -56,6 +56,7 @@ while ($img = $prep->fetch()){
 		<div class = "boxes">
 			<div class ="box-content">
 				<div id = "logo"><a href="./index.php"><img src="./img/logocamagru2.png" width	="100%" height="100%" alt ="logo du site" title="Tof-Ouf"></a></div>
+			</div>
 				<div class="box-content">
 				<div id="connexion">
 				<form method="post" action="connexion.php">
