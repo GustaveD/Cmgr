@@ -23,49 +23,49 @@ body{
 	font-family: 'caviar_dreamsregular';
 	color: rgb(80, 119, 127);
 	background-color: rgb(17, 113, 127);
-	border-radius: 10px;
-	box-shadow: 5px 5px 12px #555;
 }
 
 header{
 	background-color: rgb(160, 239, 255);
 	opacity: 0.8;
-	height: 100px;
-	padding:20px;
+	height: 5%;
+	padding: 1%;
+	margin-left:5%;
+	margin-right:5%;
 	position: relative;
 	text-align:center;
-	border-radius: 10px;
-	box-shadow: 5px 5px 12px #555;
+	border-radius: 10%;
+	box-shadow: 5px 15px 12px 20px #555;
 }
 
 footer{
 	text-align: center;
 	background-color: rgb(160, 239, 255);
-	opacity: 0.8;
-	height: 100px;
-	padding:20px;
+	opacity: 0.7;
+	height: 5%;
+	padding:1%;
 	margin-left: auto;
 	margin-right: auto;
-	border-radius: 10px;
-	box-shadow: 5px 5px 12px #555;
+	border-radius:10%;
+	box-shadow: 5px 15px 12px 20px #555;
 }
 
 .Menu{
 	position: relative;
 	text-align: center;
 
-	background-color: rgb(25, 171, 255);
+	background-color: rgb(6, 219, 255);
 	opacity: 0.6;
 
 	height: 300px;
 
-	margin-top: 75px;
-	margin-left: 100px;
-	margin-right:100px;
-	margin-bottom: 50px;
+	margin-top: 5%;
+	margin-left: 10%;
+	margin-right:10%;
+	margin-bottom: 5%;
 
-	border-radius: 10px;
-	box-shadow: 5px 5px 12px #555;
+	border-radius:10%;
+	box-shadow: 5px 15px 12px 20px #555;
 
 }
 
@@ -73,28 +73,28 @@ footer{
 .module{
 	position: relative;
 	display: inline-block;
-	margin: 25px 90px;
+	margin: 2%;
 	background-color:rgb(0,60,76);
 
-	width: 200px;
-	height: 250px;
+	width: 20%;
+	height: 80%;
 
-	border-radius: 10px;
+	border-radius:10%;
 	box-shadow: 5px 5px 12px #555;
 }
 
 #mod p{
-
-	vertical-align: middle;
-	background-color:rgb( 76, 230, 255);
-
-	width: 100px;
-	height: 40px;
-
+	font-size: 100%;
+	background-color:rgb( 0, 0, 0);
+	width: 50%;
+	height: 10%;
 	margin: 100px 30px 50px 50px;
-
-	border-radius: 10px;
+	border-radius:10%;
 	box-shadow: 5px 5px 12px #555;
+}
+p{
+	width:100%;
+	height:100%;
 }
 
 #copyright{
@@ -103,33 +103,28 @@ footer{
 
 
 .box-content{
-	display: inline-block;
+	width:50%;
 	float:left;
 }
 
 .boxes{
+	width:40%;
 	display: inline-block;
 }
 
 #logo{
-	border-radius: 10px;
- 	border:solid;
- 	margin-right: 250px;
+	border-radius: 5%;
+ 	margin-right: 5%;
  	margin-left: auto;
+ 	box-shadow: 2px 1px 1px #555;
 }
 
-#title{
-	border-radius: 10px;
-	border:solid;
- 	margin: 0 auto;
-}
 
 #connexion{
-	border-radius: 10px;
-	border:solid;
+	border-radius: 5%;
+	box-shadow: 2px 1px 1px #555;
 	margin-left: 250px;
  	margin-right: auto;
-
 }
 
 /*body{
