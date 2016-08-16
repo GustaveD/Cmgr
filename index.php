@@ -1,4 +1,4 @@
-	<?php
+<?php
 	session_start();
 include_once('./config/setup.php');
 ?>
@@ -17,7 +17,7 @@ include_once('./config/setup.php');
 			</div>
 			<div class="box-content">
 				<div id = "title"><h1> TOF-OUF</h1> </div>
-<?php
+<?php 
 if (!isset($_SESSION['user']))
 {
 			echo'</div>
@@ -39,7 +39,8 @@ if (!isset($_SESSION['user']))
 }
 else{
 		echo '<a id ="logout" href = "logout.php">Se deconnecter</a>';
-}?>
+}
+?>
 	</header>
 		<div class= "Menu">
 			<div class="module"><a id ="mod" href = "take_photo.php"><p>Montage<p></a></div>

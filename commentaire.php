@@ -57,7 +57,8 @@ echo'<html>
 		<img src="<?php echo $img['img_path']; ?>" width=200 height=150/>
 	</div>
 	<h2>Commentaires:</h2>
-	<?php foreach ($coms as $coms): ?>
+	<?php	if ($coms)
+			 foreach ($coms as $coms): ?>
 		<p><strong><?php echo htmlspecialchars($coms['author']);?>
 		<br>
 		</strong> le <?php echo nl2br($coms['date']); ?></p>

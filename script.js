@@ -25,7 +25,7 @@ document.getElementById("snap").addEventListener('click', function() {
 		}, errBack);
 	}
 	else if(navigator.mediaDevices.getUserMedia) { // Firefox-prefixed
-		navigator.mediaDevices.getUserMedia(videoObj, function(stream){
+		navigator.mediaDevices.getUserMedia(videoObj).then(function(stream){
 			video.src = window.URL.createObjectURL(stream);
 			video.play();
 		}, errBack);
