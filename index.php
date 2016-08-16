@@ -13,8 +13,7 @@ include_once('./config/setup.php');
 	<header>
 		<div class = "boxes">
 			<div class ="box-content">
-				<div id = "logo"><a href="./index.php"><img src="./img/logocamagru2.png" width	="70%" height="70%	" alt ="logo du site" title="Tof-Ouf"></a></div>
-			</div>
+				<div id = "logo"><a href="./index.php"><img src="./img/logocamagru2.png" width	="100%" height="100%	" alt ="logo du site" title="Tof-Ouf"></a></div>
 
 <?php 
 if (!isset($_SESSION['user']))
@@ -29,12 +28,13 @@ if (!isset($_SESSION['user']))
 					<label for="mdp">Mot de Passe</label>
 					<input id = "mdp" name = "mdp" type = "password" required />
 					</br>
-					<input type ="submit" value="Connexion">
+					<input id="button" type ="submit" value="Connexion">
 				</form>
 				<a href="forgot_mail.php">Mot de Passe 	oublié?</a></br>
 				</div>
 			</div>
-		</div>';
+		</div>
+	</div>';
 }
 else{
 		echo '<a id ="logout" href = "logout.php">Se deconnecter</a>';
@@ -48,6 +48,7 @@ else{
 		</div>
 	<footer id = "footer_site">
 		<p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
+		<p id="cumugra"><a href="./index.php">cumUgra</a></p>
 	</footer>
 
 </body>
