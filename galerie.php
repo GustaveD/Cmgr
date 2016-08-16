@@ -24,37 +24,55 @@ $prep->execute();
 while ($img = $prep->fetch()){
 	$post[] = $img;
 }
-if (isset($_SESSION['user']))
-{
-echo'<html>
-<head>
-	<title>Camagru</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="style01.css">
-</head>
-<body>
-	<header>
-		<a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
-		<h1> TOF-OUF</h1> 
-		<a id="logout" href="logout.php">LOG OUT</a>
-	</header>';
-}
-else
-{
-echo'<html>
-<head>
-	<title>Camagru</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="style01.css">
-</head>
-<body>
-	<header>
-		<a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
-		<h1> TOF-OUF</h1> 
-	</header>';
-}
 ?>
 
+<?php if(isset($_SESSION['user'])): ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Camagru</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<div class = "boxes">
+			<div class ="box-content">
+				<div id = "logo"><a href="./index.php"><img src="./img/logocamagru2.png" width	="100%" height="100%" alt ="logo du site" title="Tof-Ouf"></a></div>
+				</div>
+				<div class="box-content">
+			<a id ="logout" href = "logout.php">Se deconnecter</a></div>
+
+	</header>
+<?php else: ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Camagru</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<div class = "boxes">
+			<div class ="box-content">
+				<div id = "logo"><a href="./index.php"><img src="./img/logocamagru2.png" width	="100%" height="100%" alt ="logo du site" title="Tof-Ouf"></a></div>
+				<div class="box-content">
+				<div id="connexion">
+				<form method="post" action="connexion.php">
+					<label for="id">Identifiant</label>
+					<input id = "login" name="login" type ="text" required />
+					</br>
+					<label for="mdp">Mot de Passe</label>
+					<input id = "mdp" name = "mdp" type = "password" required />
+					</br>
+					<input id="button" type ="submit" value="Connexion">
+				</form>
+				<a href="forgot_mail.php">Mot de Passe 	oublié?</a></br>
+				</div>
+			</div>
+		</div> 
+	</header>
+<?php endif ?>
 
 <?php if($post)
 		 foreach ($post as $post): ?>
@@ -85,8 +103,8 @@ echo'<html>
 	<a href="galerie.php?p=<?php echo $i; ?>"> <?php echo $i; ?> / </a>
 <?php endfor; ?>
 <footer id = "footer_site">
-<p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
-	<div></div>
-</footer>
+		<p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
+		<p id="cumugra"><a href="./index.php">cumUgra</a></p>
+	</footer>
 </body>
 </html>

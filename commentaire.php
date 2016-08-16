@@ -29,7 +29,7 @@ echo'<html>
 </head>
 <body>
 	<header>
-		<a href="./index.php"><img src="./img/logo.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
+		<a href="./index.php"><img src="./img/logocamgru2.png" width="75px" height="75px" alt ="logo du site" title="Tof-Ouf"></a>
 		<h1> TOF-OUF</h1> 
 		<a id="logout" href="logout.php">LOG OUT</a>
 	</header>';

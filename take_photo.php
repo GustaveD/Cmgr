@@ -11,6 +11,7 @@ echo '
 	<head>
 	  <meta charset="utf-8">
 	  <title>Titre de la page</title>
+	  <link rel="stylesheet" href="style.css">
 	</head>
 	<script src="script.js"></script>
 	<script src="preview.js"></script>
@@ -55,6 +56,7 @@ echo '
 }
 ?><footer id = "footer_site">
 <p id="copyright">© jrosamon  Tous droits réservés: <a href="http://www.42.fr">www.42.fr</a></p>
+		<p id="cumugra"><a href="./index.php">cumUgra</a></p>
 	<div></div>
 </footer>
 </body>
