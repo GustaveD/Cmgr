@@ -11,7 +11,7 @@ class Tools{
 			case Tools::VALID_TYPE : {
 				$content = file_get_contents('mail_template/register.html');
 				$content = preg_replace("/%name%/", $user->name, $content);
-				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/cmgr/mail.php?type=valid&code=" . $user->name, $content);
+				$content = preg_replace("/%url%/", "http://" . $_SERVER['HTTP_HOST'] . "/Camagru/mail.php?type=valid&code=" . $user->name, $content);
 				echo $content;
 				mail($user->mail, "[Tof-ouf]Valid your account to use our site !", $content, "from :noreply@tof-ouf.com\r\nContent-type:text/html;charset=UTF-8\r\n");
 				break;
